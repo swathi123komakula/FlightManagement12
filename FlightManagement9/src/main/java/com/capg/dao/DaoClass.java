@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.capg.entity.Flightdetails;
+import com.capg.entity.Flightschedule;
 
 @Repository
 public class DaoClass implements DaoInterface {
@@ -17,28 +17,28 @@ public class DaoClass implements DaoInterface {
 	 EntityManager em;
 	
 	@Override
-	public Flightdetails FlightdetailsCreation(Flightdetails fli) {
+	public Flightschedule FlightscheduleCreation(Flightschedule fli) {
 		// TODO Auto-generated method stub
-		Flightdetails f=em.merge(fli);
+		Flightschedule f=em.merge(fli);
 		return f;
 	}
 	
 	@Override
-	public Flightdetails getFlightdetailsById(int id) {
+	public Flightschedule getFlightscheduleById(int id) {
 		
-		return em.find(Flightdetails.class,id);
+		return em.find(Flightschedule.class,id);
 	}
 	
 	@Override
-	public List<Flightdetails> getAllFlightdetails() {
+	public List<Flightschedule> getAllFlightscheudle() {
 		Query q=em.createQuery("select m from Flightdetails m");
-		List<Flightdetails> flilist=q.getResultList();
+		List<Flightschedule> flilist=q.getResultList();
 		return flilist;
 	}
 	
 	@Override
-	public Flightdetails UpdateFlightdetails(Flightdetails fli) {
-		Flightdetails f=em.find(Flightdetails.class,fli.getId());
+	public Flightschedule UpdateFlightschedule(Flightschedule fli) {
+		Flightschedule f=em.find(Flightschedule.class,fli.getId());
 		if(f!=null)
 		{
 			f.setId(fli.getId());
@@ -55,12 +55,18 @@ public class DaoClass implements DaoInterface {
 	}
 
 @Override	
-public Flightdetails deleteById(int id) {
-	Flightdetails f=em.find(Flightdetails.class,id);
+public Flightschedule deleteById(int id) {
+	Flightschedule f=em.find(Flightschedule.class,id);
 	if(f!=null)
 		{em.remove(f);
 		}
     return f;
 }
 
+@Override
+public List<Flightschedule> getAllFlightschedule() {
+	// TODO Auto-generated method stub
+	return null;
 }
+}
+

@@ -2,17 +2,19 @@ package com.capg.dao;
 
 import java.util.List;
 
-import com.capg.entity.Flightdetails;
+import com.capg.entity.Flightschedule;
 
 public interface DaoInterface {
 
-	Flightdetails deleteById(int id);
+	Flightschedule deleteById(int id);
 
-	List<Flightdetails> getAllFlightdetails();
+	List<Flightschedule> getAllFlightschedule();
 
-	Flightdetails getFlightdetailsById(int id);
+	Flightschedule getFlightscheduleById(int id);
 
-	Flightdetails FlightdetailsCreation(Flightdetails fli);
+	Flightschedule FlightscheduleCreation(Flightschedule fli);
 
-	Flightdetails UpdateFlightdetails(Flightdetails fli);
+	Flightschedule UpdateFlightschedule(Flightschedule fli);
+
+	List<Flightschedule> getAllFlightscheudle();
 }

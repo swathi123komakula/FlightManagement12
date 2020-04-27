@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.capg.entity.Flightdetails;
+import com.capg.entity.Flightschedule;
 import com.capg.exceptions.IdNotFoundException;
 import com.capg.service.ServiceClass;
 
@@ -29,9 +29,9 @@ public class ControllerClass {
 	ServiceClass serviceobj;
 
 	
-	@PostMapping("/FlightdetailsCreation")
-	public ResponseEntity<String> FlightdetailsCreation(@RequestBody Flightdetails fli) {
-		Flightdetails f = serviceobj.FlightdetailsCreation(fli);
+	@PostMapping("/FlightscheduleCreation")
+	public ResponseEntity<String> FlightdetailsCreation(@RequestBody Flightschedule fli) {
+		Flightschedule f = serviceobj.FlightdetailsCreation(fli);
 		if (f == null) {
 			throw new IdNotFoundException("Enter Valid Id");
 		} else {
@@ -40,27 +40,27 @@ public class ControllerClass {
 	}
 
 	
-	@GetMapping("/GetFlightdetails/{id}")
-	private ResponseEntity<Flightdetails> getFlightdetails(@PathVariable("id") int id) {
-		Flightdetails f = serviceobj.getFlightdetailsById(id);
+	@GetMapping("/GetFlightschedule/{id}")
+	private ResponseEntity<Flightschedule> getFlightdetails(@PathVariable("id") int id) {
+		Flightschedule f = serviceobj.getFlightdetailsById(id);
 		if (f == null) {
 			throw new IdNotFoundException("Id does not exist,so we couldn't fetch details");
 		} else {
-			return new ResponseEntity<Flightdetails>(f, new HttpHeaders(), HttpStatus.OK);
+			return new ResponseEntity<Flightschedule>(f, new HttpHeaders(), HttpStatus.OK);
 		}
 	}
 
-	@GetMapping("/GetAllFlights")
-	private ResponseEntity<List<Flightdetails>> getAllFlightdetails() {
-		List<Flightdetails> flilist = serviceobj.getAllFlightdetails();
-		return new ResponseEntity<List<Flightdetails>>(flilist, new HttpHeaders(), HttpStatus.OK);
+	@GetMapping("/GetAllFlightschedule")
+	private ResponseEntity<List<Flightschedule>> getAllFlightdetails() {
+		List<Flightschedule> flilist = serviceobj.getAllFlightdetails();
+		return new ResponseEntity<List<Flightschedule>>(flilist, new HttpHeaders(), HttpStatus.OK);
 
 	}
 
 	
-	@PutMapping("/UpdateFlight")
-	public ResponseEntity<String> UpdateFlight(@RequestBody Flightdetails fli) {
-		Flightdetails f = serviceobj.UpdateFlightdetails(fli);
+	@PutMapping("/UpdateFlightschedule")
+	public ResponseEntity<String> UpdateFlight(@RequestBody Flightschedule fli) {
+		Flightschedule f = serviceobj.UpdateFlightdetails(fli);
 		if (f == null) {
 			throw new IdNotFoundException("Update Operation Unsuccessful,Provided Id does not exist");
 		} else {
@@ -69,9 +69,9 @@ public class ControllerClass {
 	}
 
 	
-	@DeleteMapping("/DeleteFlight/{id}")
+	@DeleteMapping("/DeleteFlightschedule/{id}")
 	private ResponseEntity<String> delFli(@PathVariable("id") int id) {
-		Flightdetails f = serviceobj.delete(id);
+		Flightschedule f = serviceobj.delete(id);
 		if (f == null) {
 			throw new IdNotFoundException("Delete Operation Unsuccessful,Provided Id does not exist");
 		} else {

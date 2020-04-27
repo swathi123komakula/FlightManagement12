@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.capg.dao.DaoClass;
-import com.capg.entity.Flightdetails;
+import com.capg.entity.Flightschedule;
 
 @Service
 @Transactional
@@ -16,27 +16,27 @@ public class ServiceClass
 @Autowired
 DaoClass dao;
 
-public Flightdetails FlightdetailsCreation(Flightdetails fli) {
-	return dao.FlightdetailsCreation(fli);
+public Flightschedule FlightdetailsCreation(Flightschedule fli) {
+	return dao.FlightscheduleCreation(fli);
 }
 
-public Flightdetails getFlightdetailsById(int id) 
+public Flightschedule getFlightdetailsById(int id) 
 {
-return dao.getFlightdetailsById(id);
+return dao.getFlightscheduleById(id);
 }
 
-public List<Flightdetails> getAllFlightdetails() 
+public List<Flightschedule> getAllFlightdetails() 
 {
-return dao.getAllFlightdetails();
+return dao.getAllFlightschedule();
 }
 
-public Flightdetails delete(int id) 
+public Flightschedule delete(int id) 
 {
 	return dao.deleteById(id);
 }
 
-public Flightdetails UpdateFlightdetails(Flightdetails fli) {
-	return dao.UpdateFlightdetails(fli);	
+public Flightschedule UpdateFlightdetails(Flightschedule fli) {
+	return dao.UpdateFlightschedule(fli);	
 }
 
 }
